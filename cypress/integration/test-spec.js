@@ -32,4 +32,25 @@ describe('form', () => {
       .type("28")
       .should('have.value', '28');
   })
+});
+
+describe('adding a new birthday', () => {
+  beforeEach(()=>{
+    cy.visit('http://localhost:3000');
+  })
+  it('should be able to add names and birthdays to the calendar', () => {
+    cy.get('input[name="name"]')
+      .type('Nate')
+      .should('have.value', 'Nate');
+    cy.get('input[name="month"]')
+      .type("12")
+      .should('have.value', '12');
+    cy.get('input[name="day"]')
+      .type("28")
+      .should('have.value', '28');
+    cy.get('.add-bday-btn')
+      .click()
+    cy.get('.month-name').contains('December').parent()
+      .contains('Nate: 12/28');
+  })
 })

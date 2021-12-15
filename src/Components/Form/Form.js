@@ -24,6 +24,15 @@ class Form extends Component {
       day: parseInt(this.state.day)
     }
     this.props.addBday(newBday)
+    this.clearFields();
+  }
+
+  clearFields = () => {
+    this.setState({
+      name: '',
+      month: '',
+      day: '',
+    })
   }
 
   render(){
