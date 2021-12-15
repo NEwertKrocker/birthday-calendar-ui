@@ -6,8 +6,8 @@ class Form extends Component {
     super(props);
     this.state = {
       name: '',
-      month: 0,
-      day: 0,
+      month: '',
+      day: '',
     }
   }
 
