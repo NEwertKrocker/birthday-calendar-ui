@@ -9,14 +9,14 @@ const Months = ({ birthdays }) => {
     const monthlyBdays = birthdays.filter(birthday => birthday.month === month.id)
 
     const allBdays = monthlyBdays.map((bday) => {
-      return `${bday.name}: ${bday.month}/${bday.day}`
+      return `${bday.name}: ${bday.month}/${bday.day} `
     })
     console.log(allBdays)
     return (
       <div className='month-block'>
         <article>
           <h2 className='month-name'>{month.name}</h2>
-          {monthlyBdays.length ? allBdays : <p className='no-birthdays'>No birthdays this month.</p>}
+          {monthlyBdays.length ? <p>{allBdays}</p> : <p className='no-birthdays'>No birthdays this month.</p>}
         </article>
       </div>
     )

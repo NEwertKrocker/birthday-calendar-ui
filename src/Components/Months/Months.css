@@ -21,3 +21,8 @@
   font-style: italic;
   font-size: 12px;
 }
+
+article {
+  padding: 3px;
+  min-height: 120px;
+}
