@@ -2,24 +2,52 @@ import React, { Component} from 'react';
 import './Form.css';
 
 class Form extends Component {
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.state = {
-
+      name: '',
+      month: 0,
+      day: 0,
     }
+  }
+
+  handleChange = (event) => {
+      const {name, value} = event.target
+      this.setState({[name]: value})
+    }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const newBday = {
+      name: this.state.name,
+      month: parseInt(this.state.month),
+      day: parseInt(this.state.day)
+    }
+    this.props.addBday(newBday)
   }
 
   render(){
     return (
-      <div className='form-wrapper'>
+      <form className='form-wrapper' onSubmit={this.handleSubmit}>
         <label for='name'>Name:</label>
-        <input id='name'></input>
+        <input id='name'
+          name='name'
+          value={this.state.name}
+          onChange={this.handleChange}></input>
         <label for='month'>Month:</label>
-        <input id='month'></input>
+        <input
+          id='month'
+          name='month'
+          value={this.state.month}
+          onChange={this.handleChange}></input>
         <label for='day'>Day:</label>
-        <input id='day'></input>
-        <button type='button'>Add this birthday!</button>
-      </div>
+        <input
+          id='day'
+          name='day'
+          value={this.state.day}
+          onChange={this.handleChange}></input>
+        <button type='button' className='add-bday-btn' onClick={this.handleSubmit}>Add this birthday!</button>
+      </form>
     )
   }
 }

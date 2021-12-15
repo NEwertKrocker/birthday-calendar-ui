@@ -19,12 +19,18 @@ class App extends Component {
     .then(data => {this.setState({ birthdays: data })})
   }
 
+  addBday = (bday) => {
+    const newBday = {...bday, id: Date.now()}
+    const birthdays = [...this.state.birthdays, newBday]
+    this.setState({ birthdays })
+  }
+
   render () {
   return (
     <div className="App">
       <h1>Birthdays</h1>
       <div className='bday-form'>
-        <Form />
+        <Form addBday={this.addBday}/>
       </div>
       <div className='bday-container'>
         <Months birthdays={this.state.birthdays}/>
