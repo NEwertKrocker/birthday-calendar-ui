@@ -6,10 +6,19 @@ const Months = ({ birthdays }) => {
 
   const monthsGrid = months.map((month) => {
 
+    const monthlyBdays = birthdays.filter(birthday => birthday.month === month.id)
+    console.log(monthlyBdays);
+    const allBdays = monthlyBdays.reduce((acc, bday) => {
+      acc += `${bday.name}: ${bday.month}/${bday.day}`
+      return acc
+    }, '')
+
     return (
       <div className='month-block'>
         <article>
           <h2 className='month-name'>{month.name}</h2>
+          {monthlyBdays.length && allBdays}
+          {!monthlyBdays.length && <p>No birthdays this month.</p>}
         </article>
       </div>
     )
