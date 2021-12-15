@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
 import './Months.css'
-import months from './months_data'
+import { months } from '../../months_data.js'
 
 const Months = ({ birthdays }) => {
 
-  const months = birthdays.map((birthday))
+  const monthsGrid = months.map((month) => {
+
+    return (
+      <div className='month-block'>
+        <article>
+          <h2 className='month-name'>{month.name}</h2>
+        </article>
+      </div>
+    )
+  })
 
   return (
-    <div>
-      <article>
-
-      </article>
+    <div className='months-grid'>
+      {monthsGrid}
     </div>
   )
+
 }
+
+export default Months;

@@ -1,0 +1,17 @@
+.month-block {
+  height: 30%;
+  width: 20%;
+  background-color: white;
+  border: 2px solid black;
+  margin-top: 20px;
+}
+
+.months-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.month-name {
+  justify-content: center;
+}

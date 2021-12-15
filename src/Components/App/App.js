@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { months } from '../../months_data';
 import { getBirthdays } from '../apiCalls'
+import Months from '../Months/Months.js'
 
 class App extends Component {
   constructor(){
